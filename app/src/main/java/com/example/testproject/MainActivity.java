@@ -1,5 +1,6 @@
 package com.example.testproject;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -10,12 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
     private EditText text_from_user;
     private TextView result;
     private Button button;
+    private FloatingActionButton floatButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
         text_from_user = findViewById(R.id.editText);
         result = findViewById(R.id.result_filed);
         button = findViewById(R.id.button_convert);
+        floatButton = findViewById(R.id.floatButton);
+
+        floatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent("com.example.testproject.LoginPageActivity");
+                startActivity(intent);
+            }
+        });
 
         //обработчик события - нажатие кнопки button = button_convert
         button.setOnClickListener(new View.OnClickListener() {
